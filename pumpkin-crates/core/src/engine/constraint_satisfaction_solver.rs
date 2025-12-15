@@ -979,7 +979,7 @@ impl ConstraintSatisfactionSolver {
 
         self.handle_root_propagation(num_trail_entries);
 
-        if self.solver_state.is_infeasible() {
+        if self.solver_state.is_inconsistent() {
             self.complete_proof();
             Err(ConstraintOperationError::InfeasibleState)
         } else {
